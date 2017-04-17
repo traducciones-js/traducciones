@@ -1,3 +1,5 @@
+# Iteradores como generadores
+
 ### Al parecer, los iteradores pueden ser escritos usando generadores. Esto puede llevar a algunos casos de uso interesantes. Continúa leyendo para entender las propiedades sinergísticas entre estos dos conceptos de iteración en JavaScript.
 
 Repasemos brevemente generadores _(lee nuestra introducción a generadores acá)_.
