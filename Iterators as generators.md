@@ -1,3 +1,7 @@
+Traducido de https://ponyfoo.com/articles/iterators-as-generators. La traducción es fiel al original, no se hicieron cambios significativos.
+
+https://ponyfoo.com/license
+
 # Iteradores como generadores
 
 ### Al parecer, los iteradores pueden ser escritos usando generadores. Esto puede llevar a algunos casos de uso interesantes. Continúa leyendo para entender las propiedades sinergísticas entre estos dos conceptos de iteración en JavaScript.
