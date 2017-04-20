@@ -2,11 +2,7 @@ Traducido de https://ponyfoo.com/articles/es6-iterators-in-depth
 
 # Iteradores de ES6 en profundidad
 
-### _Esta es una edición más de *ES6 en Profundidad*.
-Primera vez aquí?
-Bienvenido!
-Hasta ahora hemos cubierto desestructuramiento, plantillas de cadenas de texto, funciones flecha, el operador propagación y los parámetros rest, mejoras que van a venir a los objetos literales, el nuevo azúcar sintáctico clases por sobre prototipos, y un artículo sobre `let`, `const`, y la "Zona Temporal Muerta".
-La sopa del dia es: *Iteradores*_.
+### _Esta es una edición más de *ES6 en Profundidad*. Primera vez aquí? Bienvenido! Hasta ahora hemos cubierto desestructuramiento, plantillas de cadenas de texto, funciones flecha, el operador propagación y los parámetros rest, mejoras que van a venir a los objetos literales, el nuevo azúcar sintáctico clases por sobre prototipos, y un artículo sobre `let`, `const`, y la "Zona Temporal Muerta". La sopa del dia es: *Iteradores*_.
 
 --------------------------------------------------------------------
 
@@ -110,7 +106,7 @@ En esencia, el atractivo de los protocolos de iteración, `for..of`, `Array.from
 Tener la habilidad de definir cómo cualquier objeto puede ser iterado es enorme, ya que permite que cualquier librería como *lo-dash* converja bajo un protocolo que el lenguaje entiende nativamente - _iterables_.
 Esto es *gigante*.
 
-<tweet>
+tweet
 
 Sólo para darte otro ejemplo, te acordás cómo siempre me quejo de que los objetos envueltos de jQuery no son verdaderos arreglos, o cómo `document.querySelectorAll` tampoco devuelve un arreglo?
 Si jQuery implementase el protocolo iterador en el prototipo de sus colectiones, luego podrías hacer algo como lo siguiente:
@@ -176,7 +172,7 @@ for (let pony of foo) {
 El iterador no _sabe_ realmente que la secuencia es infinita.
 En ese sentido, esto es similar al problema de la parada - no hay manera de conocer en código si una secuencia es infinita o no.
 
-<imagen de xkcd>
+imagen de xkcd
 Epígrafe: _El problema de la parada ilustrado por XKCD_
 
 *Normalmente tenemos una noción muy buena* de si una secuencia es _finita_ o _infinita_, dado que nosotros construimos dichas secuencias.
