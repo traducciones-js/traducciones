@@ -6,23 +6,18 @@ Traducido de https://ponyfoo.com/articles/es6-iterators-in-depth
 
 --------------------------------------------------------------------
 
-Como hice en artículos previos en la serie, me gustaría mencionar que probablemente deberías poner a funcionar Babel y seguir los ejemplos con una REPL (Bucle de Leer, Evaluar, Imprimir) o la CLI (interfaz de línea de comandos) `babel-node` y un archivo.
+Como hice en artículos previos en la serie, me gustaría mencionar que probablemente deberías poner a funcionar Babel y seguir los ejemplos con una REPL (Bucle de Leer, Evaluar, Imprimir por sis siglas en inglés) o la CLI (Interfaz de Línea de Comandos) `babel-node` y un archivo.
 Eso hará que sea tanto más fácil que internalices los conceptos discutidos en la serie.
-Si no sos el tipo de ser humano al que le gusta _"instalar cosas en su computadora"_, puede que prefieras ir a CodePen y luego hacer click en el ícono de engranaje para JavaScript - _ellos tienen un preprocesador de Babel que hace que probar ES6 sea pan comido_.
-Otra alternativa que también es bastante útil es usar la REPL online de Babel - _ésta te mostrará código ES5 compilado a la derecha de tu código de ES6 para una comparación rápida_.
+Si no sos el tipo de humano al que le gusta _"instalar cosas en su computadora"_, puede que prefieras ir a CodePen y luego hacer click en el ícono de engranaje para JavaScript - _ellos tienen un preprocesador de Babel que hace que probar ES6 sea pan comido_.
+Otra alternativa que también es bastante útil es usar la versión online de la  REPL de Babel - _ésta te mostrará código ES5 compilado a la derecha de tu código de ES6 para una comparación rápida_.
 
 --------------------------------------------------------------------
-
-Antes de meternos de lleno, dejame que _te pida tu apoyo sin tapujos_ si estás disfrutando mi serie ES6 en profundidad.
-Tus contribuciones irán a que me mantenga al día con el calendario de artículos, cuentas de servidores, alimento, y mantener a Pony Foo como una verdadera fuente de chucherías de JavaScript.
-
-Gracias por escuchar eso, y sin más que agregar.. _me permite_?
 
 # El protocolo iterador y el protocolo iterable
 
 --------------------------------------------------------------------
 
-_Hay mucha terminología nueva y mezclada acá. Por favor seguime mientras nos saco algunas de estas explicaciones de encima_.
+_Hay mucha terminología nueva y mezclada acá. Por favor tené paciencia mientras nos sacamos algunas de estas explicaciones de encima_.
 
 --------------------------------------------------------------------
 
@@ -30,7 +25,7 @@ JavaScript obtiene dos nuevos protocolos en ES6, _Iteradores_ e _Iterables_.
 En términos llanos, podés pensar en los protocolos como _convenciones_.
 En la medida que sigas una determinada convención en el lenguaje, obtendrás un efecto secundario.
 El protocolo _iterable_ te permite definir el comportamiento cuando los objetos en JavaScript están siendo iterados.
-Debajo del capó, enterrado en el mundo de intérpretes de JavaScript y las _palabras ininteligibles_ de la especificacón del lenguaje, tenemos el método `@@iterator`. Este método subyace al protocolo _iterable_ y, en el mundo real, podés asignar a él usando algo conocido como el "bien conocido símbolo `Symbol.iterator`".
+Debajo del capó, enterrado en el mundo de intérpretes de JavaScript y las _palabras ininteligibles_ de la especificacón del lenguaje, tenemos el método `@@iterator`. Este método subyace al protocolo _iterable_ y, en el mundo real, podés asignar a él usando algo denominado un "símbolo conocido": `Symbol.iterator`.
 
 Vamos a volver a hablar sobre símbolos _mas adelante en la serie_.
 Antes de perder el foco, deberías saber que el método `@@iterator` es llamado *una vez, cada vez que el objeto debe ser iterado*.
@@ -45,7 +40,7 @@ El protocolo _iterador_ define cómo extraer valores de un objeto, y debemos dev
 El protocolo indica que debemos tener un objeto con un método `next`.
 El método `next` no recibe argumentos y debe retornar un objeto con las siguientes propiedades:
 
- - `done` simboliza que la secuencia terminó cuando es `true`, y `falso` implica que aún quedan valores.
+ - `done` simboliza que la secuencia terminó cuando es `true`, y `false` implica que aún quedan valores.
  - `value` es el ítem actual en la secuencia.
  
  En mi ejemplo, el método iterador retorna un objeto que tiene una lista finita de items la cual emite esos ítems hasta que ya no quede ninguno.
@@ -96,7 +91,7 @@ console.log(Array.from(foo))
 
 Para resumir, nuestro objeto `foo` adhiere al protocolo _iterable_ al asignar un método al `[Symbol.iterator]` - _cualquier lugar dentro de la cadena prototípica de `foo` funcionaría.
 Esto significa que el objeto es _iterable_: puede ser iterado.
-Dicho m{etodo devuelve un objeto que adhiere al protocolo _iterador_.
+Dicho método devuelve un objeto que adhiere al protocolo _iterador_.
 El método iterador es llamado una vez cada vez que queremos empezar a iterar el objeto, y el _iterador_ devuelto es utilizado para extraer valores de `foo`.
 Para iterar iterables, podemos usar `for..of`, el operador propagación, o `Array.from`.
 
@@ -105,8 +100,6 @@ Para iterar iterables, podemos usar `for..of`, el operador propagación, o `Arra
 En esencia, el atractivo de los protocolos de iteración, `for..of`, `Array.from`, y el operador propagación es que proveen métodos expresivos para iterar sin esfuerzo sobre colecciones y símil-arreglos _(como `arguments`)_.
 Tener la habilidad de definir cómo cualquier objeto puede ser iterado es enorme, ya que permite que cualquier librería como *lo-dash* converja bajo un protocolo que el lenguaje entiende nativamente - _iterables_.
 Esto es *gigante*.
-
-tweet
 
 Sólo para darte otro ejemplo, te acordás cómo siempre me quejo de que los objetos envueltos de jQuery no son verdaderos arreglos, o cómo `document.querySelectorAll` tampoco devuelve un arreglo?
 Si jQuery implementase el protocolo iterador en el prototipo de sus colectiones, luego podrías hacer algo como lo siguiente:
