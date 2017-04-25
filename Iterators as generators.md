@@ -1,8 +1,4 @@
-Traducido de https://ponyfoo.com/articles/iterators-as-generators. La traducción es fiel al original, no se hicieron cambios significativos.
-
-https://ponyfoo.com/license
-
-# Iteradores como generadores
+### Iteradores como generadores
 
 ### Al parecer, los iteradores pueden ser escritos usando generadores. Esto puede llevar a algunos casos de uso interesantes. Continúa leyendo para entender las propiedades sinergísticas entre estos dos conceptos de iteración en JavaScript.
 
@@ -38,7 +34,7 @@ console.log(g.next()) // <- { value: 21, done: false }
 
 Los iteradores siguen un patrón similar _(podés leer nuestra introducción a los iteradores acá)_.
 Ellos fuerzan un contrato que dicta que debemos devolver un objeto con un método `next`.
-Ese método debería devolver elementos secuenciales siguiendo la forma `{ value, done }`. Los siguientes ejemplos muestran un iterable `fibonacci` que es el equivalente tosco del generador que acabamos de ver.
+Ese método debería devolver elementos secuenciales siguiendo la forma `{ value, done }`. El siguiente ejemplo muestra un iterable `fibonacci` que es el equivalente tosco del generador que acabamos de ver.
 
 ```
 const fibonacci = {
@@ -67,7 +63,7 @@ console.log(sequence.next()) // <- { value: 13, done: false }
 console.log(sequence.next()) // <- { value: 21, done: false }
 ```
 
-Iteremos.
+Reiteramos.
 Un iterable debería devolver un objeto con un método `next`: las funciones generadoras hacen justamente eso.
 El método `next` debería devolver objetos en la forma `{ value, done }`: las funciones generadoras hacen eso también.
 Qué pasa si cambiamos al iterable `fibonacci` para que use una función generadora como su propiedad `Symbol.iterator`?
